@@ -82,6 +82,9 @@
     if (dbFile == NULL) {
         return NULL;
     }
+    if([dbFile hasPrefix:@"/"]) {
+      return dbFile;
+    }
 
     NSString *dbdir = [appDBPaths objectForKey:atkey];
     NSString *dbPath = [dbdir stringByAppendingPathComponent: dbFile];
